@@ -6,7 +6,7 @@
         height: 100%;
     }
 </style>
-<h1>Welcome to <?php echo $_settings->info('name') ?> - Admin Panel</h1>
+<h1> Admin Panel</h1>
 <hr class="border-info">
 <div class="row">
     <div class="col-12 col-sm-12 col-md-6 col-lg-3">
@@ -62,7 +62,7 @@
             <span class="info-box-icon bg-gradient-primary elevation-1"><i class="fas fa-user-injured"></i></span>
 
             <div class="info-box-content">
-            <span class="info-box-text">Patients</span>
+            <span class="info-box-text">Mothers</span>
             <span class="info-box-number text-right">
                 <?php 
                     echo $conn->query("SELECT * FROM `patient_list`")->num_rows;

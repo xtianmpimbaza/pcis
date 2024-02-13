@@ -15,9 +15,9 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Patients</h3>
+		<h3 class="card-title">List of Mothers</h3>
 		<div class="card-tools">
-			<a href="javascript:void(0)" id="create_new" class="btn btn-flat btn-sm btn-primary"><span class="fas fa-plus"></span>  Add New Patient</a>
+			<a href="javascript:void(0)" id="create_new" class="btn btn-flat btn-sm btn-primary"><span class="fas fa-plus"></span>  Add New Mother</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -36,7 +36,7 @@
 						<th>#</th>
 						<th>Date Added</th>
 						<th>Code</th>
-						<th>Patient Name</th>
+						<th>Mother Name</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -78,7 +78,7 @@
 			_conf("Are you sure to delete this user permanently?","delete_patient",[$(this).attr('data-id')])
 		})
 		$('#create_new').click(function(){
-			uni_modal("Add New patient Details","patients/manage_patient.php",'mid-large')
+			uni_modal("Add New Mother Details","patients/manage_patient.php",'mid-large')
 		})
 		$('.edit_data').click(function(){
 			uni_modal("Update patient Details","patients/manage_patient.php?id="+$(this).attr('data-id'),'mid-large')
@@ -86,7 +86,8 @@
 		$('.table td,.table th').addClass('py-1 px-2 align-middle')
 		$('.table').dataTable();
 	})
-	function delete_patient($id){
+
+    function delete_patient($id){
 		start_loader();
 		$.ajax({
 			url:_base_url_+"classes/Master.php?f=delete_patient",
@@ -99,7 +100,7 @@
 				end_loader();
 			},
 			success:function(resp){
-				if(typeof resp== 'object' && resp.status == 'success'){
+				if(typeof resp== 'object' && resp.status === 'success'){
 					location.reload();
 				}else{
 					alert_toast("An error occured.",'error');

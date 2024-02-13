@@ -42,14 +42,13 @@ if(isset($_GET['id'])){
             </div>
             <div class="form-group col-md-6">
                 <label for="suffix" class="control-label">Suffix <em>(If Any)</em></label>
-                <input type="text" name="suffix" id="suffix" class="form-control form-control-border" placeholder="Sr/Jr" value ="<?php echo isset($middlename) ? $middlename : '' ?>">
+                <input type="text" name="suffix" id="suffix" class="form-control form-control-border" placeholder="Ms/Mrs" value ="<?php echo isset($middlename) ? $middlename : '' ?>">
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="gender" class="control-label">Gender</label>
                 <select name="gender" id="gender" class="form-control form-control-border" reqiured>
-                    <option <?= isset($gender) && $gender == 'Male' ? 'selected' : '' ?>>Male</option>
                     <option <?= isset($gender) && $gender == 'Female' ? 'selected' : '' ?>>Female</option>
                 </select>
             </div>

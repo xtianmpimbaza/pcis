@@ -54,7 +54,7 @@ if(isset($_GET['id'])){
 				end_loader();
 			},
 			success:function(resp){
-				if(typeof resp== 'object' && resp.status == 'success'){
+				if(typeof resp== 'object' && resp.status === 'success'){
 					location.reload();
 				}else{
 					alert_toast("An error occured.",'error');
