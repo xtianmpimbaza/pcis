@@ -18,8 +18,8 @@ if(isset($_GET['id'])){
 </style>
 <div class="container-fluid">
     <dl>
-        <dt class="text-primary"><b>Illness</b></dt>
-        <dd class="pl-4"><?= isset($illness) && !empty($illness) ? $illness : 'N/A' ?></dd>
+<!--        <dt class="text-primary"><b>Illness</b></dt>-->
+<!--        <dd class="pl-4">--><?//= isset($illness) && !empty($illness) ? $illness : 'N/A' ?><!--</dd>-->
         <dt class="text-primary"><b>Diagnosis</b></dt>
         <dd class="pl-4"><?= isset($diagnosis) && !empty($diagnosis) ? $diagnosis : 'N/A' ?></dd>
         <dt class="text-primary"><b>Treatment</b></dt>

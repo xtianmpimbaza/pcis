@@ -39,16 +39,16 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
             <div class="container-fluid">
                 <fieldset>
                     <div class="row">
-                        <div class="col-4 border bg-gradient-primary text-white">Patient Code</div>
+                        <div class="col-4 border bg-gradient-primary text-white">Mother's Code</div>
                         <div class="col-8 border"><?= isset($code) ? $code : '' ?></div>
-                        <div class="col-4 border bg-gradient-primary text-white">Patient Fullname</div>
+                        <div class="col-4 border bg-gradient-primary text-white">Mother's Fullname</div>
                         <div class="col-8 border"><?= isset($fullname) ? $fullname : '' ?></div>
-                        <div class="col-3 border bg-gradient-primary text-white">Gender</div>
-                        <div class="col-3 border"><?= isset($gender) ? $gender : '' ?></div>
-                        <div class="col-3 border bg-gradient-primary text-white">Birthday</div>
-                        <div class="col-3 border"><?= isset($dob) ? date("M d, Y", strtotime($dob)) : '' ?></div>
-                        <div class="col-3 border bg-gradient-primary text-white">Address</div>
-                        <div class="col-9 border"><?= isset($address) ? $address : '' ?></div>
+<!--                        <div class="col-3 border bg-gradient-primary text-white">Gender</div>-->
+<!--                        <div class="col-3 border">--><?//= isset($gender) ? $gender : '' ?><!--</div>-->
+                        <div class="col-4 border bg-gradient-primary text-white">Birthday</div>
+                        <div class="col-8 border"><?= isset($dob) ? date("M d, Y", strtotime($dob)) : '' ?></div>
+                        <div class="col-4 border bg-gradient-primary text-white">Address</div>
+                        <div class="col-8 border"><?= isset($address) ? $address : '' ?></div>
                     </div>
                 </fieldset>
                 <div class="row">
