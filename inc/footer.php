@@ -10,7 +10,7 @@
             start_loader()
             var t = $src.split('.')
             t = t[1]
-            if (t == 'mp4') {
+            if (t === 'mp4') {
                 var view = $("<video src='" + $src + "' controls autoplay></video>")
             } else {
                 var view = $("<img src='" + $src + "' />")
