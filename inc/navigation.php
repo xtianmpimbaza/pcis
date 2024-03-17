@@ -1,7 +1,8 @@
+</style>
 <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-light-primary elevation-4 sidebar-no-expand bg-wood-dark">
+      <aside class="main-sidebar sidebar-dark-red elevation-4 sidebar-no-expand bg-dark-red">
         <!-- Brand Logo -->
-        <a href="<?php echo base_url ?>admin" class="brand-link bg-primary bg-gradient text-sm">
+        <a href="<?php echo base_url ?>admin" class="brand-link bg-transparent text-sm border-info shadow-sm bg-red">
         <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Store Logo" class="brand-image img-circle elevation-3 bg-black" style="width: 1.8rem;height: 1.8rem;max-height: unset;object-fit:scale-down;object-position:center center">
         <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
         </a>
@@ -30,22 +31,58 @@
                         </p>
                       </a>
                     </li>
-                    <li class="nav-item">
-                      <a href="<?php echo base_url ?>?page=manage_registration" class="nav-link nav-manage_registration">
-                        <i class="nav-icon fas fa-plus"></i>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=patients" class="nav-link nav-patients">
+                        <i class="nav-icon fas fa-user-injured"></i>
                         <p>
-                          Create New Registration
+                          Mothers List
                         </p>
                       </a>
                     </li>
-                    <li class="nav-item">
-                      <a href="<?php echo base_url ?>?page=registration_list" class="nav-link nav-registration_list">
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=doctors" class="nav-link nav-doctors">
+                        <i class="nav-icon fas fa-user-nurse"></i>
+                        <p>
+                          Doctor List
+                        </p>
+                      </a>
+                    </li>
+                    <?php if($_settings->userdata('type') == 1): ?>
+                    <li class="nav-header">Maintenance</li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=room_types" class="nav-link nav-room_types">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          All Application
+                          Room Types List
                         </p>
                       </a>
                     </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=rooms" class="nav-link nav-rooms">
+                        <i class="nav-icon fas fa-door-open"></i>
+                        <p>
+                          Room List
+                        </p>
+                      </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=user/list" class="nav-link nav-user_list">
+                        <i class="nav-icon fas fa-users-cog"></i>
+                        <p>
+                          User List
+                        </p>
+                      </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-system_info">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                          Settings
+                        </p>
+                      </a>
+                    </li>
+                    <?php endif; ?>
+
                   </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

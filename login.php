@@ -1,4 +1,4 @@
-<?php require_once('../config.php') ?>
+<?php require_once('config.php') ?>
 <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
  <?php require_once('inc/header.php') ?>
@@ -39,7 +39,6 @@
       <div class="w-100">
         <center><img src="<?= validate_image($_settings->info('logo')) ?>" alt="" id="logo-img"></center>
         <h1 class="text-center py-5 login-title"><b><?php echo $_settings->info('name') ?></b></h1>
-<!--        <h1 class="text-center py-5 login-title"><b>--><?php //echo $_settings->info('name') ?><!-- - Admin</b></h1>-->
       </div>
       
     </div>
@@ -69,7 +68,7 @@
               </div>
               <div class="row">
                 <div class="col-8">
-                  <!-- <a href="<?php echo base_url ?>">Go to Website</a> -->
+                   <a href="<?php echo base_url ?>">Go to Website</a>
                 </div>
                 <!-- /.col -->
                 <div class="col-4">

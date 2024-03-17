@@ -1,16 +1,10 @@
 <script>
     $(document).ready(function () {
-        $('.list-group').each(function () {
-            if (String($(this).text()).trim() == "") {
-                $(this).html("")
-            }
-        })
-
         window.viewer_modal = function ($src = '') {
             start_loader()
             var t = $src.split('.')
             t = t[1]
-            if (t === 'mp4') {
+            if (t == 'mp4') {
                 var view = $("<video src='" + $src + "' controls autoplay></video>")
             } else {
                 var view = $("<img src='" + $src + "' />")
@@ -62,16 +56,13 @@
     })
 </script>
 <footer class="main-footer text-sm">
-    <div class="container">
-        <strong>Copyright © <?php echo date('Y') ?>.
-            <!-- <a href=""></a> -->
-        </strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <!--            Group work-->
-        </div>
-</footer>
-</div>
+    <strong>Copyright © <?php echo date('Y') ?>.
+        <!-- <a href=""></a> -->
+    </strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+        <!--            Group work-->
+    </div>
 </footer>
 </div>
 <!-- ./wrapper -->
@@ -135,8 +126,3 @@
     </div>
 </div>
 <div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>
-<script>
-    $(function () {
-        $('.wrapper>.content-wrapper').css("min-height", $(window).height() - $('#top-Nav').height() - $('#login-nav').height() - $("footer.main-footer").height())
-    })
-</script>
