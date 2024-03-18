@@ -48,7 +48,8 @@
           <div class="card-header rounded-0">
             <h4 class="text-purle text-center"><b>Login</b></h4>
           </div>
-          <div class="card-body rounded-0">
+
+            <div class="card-body rounded-0">
             <form id="login-frm" action="" method="post">
               <div class="input-group mb-3">
                 <input type="text" class="form-control" autofocus name="username" placeholder="Username">
@@ -68,7 +69,7 @@
               </div>
               <div class="row">
                 <div class="col-8">
-                   <a href="<?php echo base_url ?>">Go to Website</a>
+
                 </div>
                 <!-- /.col -->
                 <div class="col-4">

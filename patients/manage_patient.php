@@ -1,5 +1,5 @@
 <?php
-require_once('../../config.php');
+require_once('../config.php');
 if(isset($_GET['id'])){
     $qry = $conn->query("SELECT * FROM `patient_list` where id = '{$_GET['id']}'");
     if($qry->num_rows > 0){
@@ -63,8 +63,8 @@ if(isset($_GET['id'])){
                 <input type="text" name="email" id="email" class="form-control form-control-border" placeholder="Email" value ="<?php echo isset($email) ? $email : '' ?>">
             </div>
             <div class="form-group col-md-6">
-                <label for="contact" class="control-label">Contact #</label>
-                <input type="text" name="contact" id="contact" class="form-control form-control-border" placeholder="Contact #" value ="<?php echo isset($contact) ? $contact : '' ?>" required>
+                <label for="phone" class="control-label">Phone *</label>
+                <input type="text" name="phone" id="phone" class="form-control form-control-border" placeholder="Contact #" value ="<?php echo isset($contact) ? $contact : '' ?>" required>
             </div>
         </div>
         <div class="row">
@@ -105,6 +105,7 @@ if(isset($_GET['id'])){
                     }else if(!!resp.msg){
                         el.addClass("alert-danger")
                         el.text(resp.msg)
+                        console.log(resp);
                         _this.prepend(el)
                     }else{
                         el.addClass("alert-danger")

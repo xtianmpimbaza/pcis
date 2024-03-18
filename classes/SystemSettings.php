@@ -164,6 +164,7 @@ class SystemSettings extends DBConnection{
 			return false;
 		}
 	}
+
 	function sess_des(){
 		if(isset($_SESSION['userdata'])){
 				unset($_SESSION['userdata']);
@@ -171,6 +172,7 @@ class SystemSettings extends DBConnection{
 		}
 			return true;
 	}
+
 	function info($field=''){
 		if(!empty($field)){
 			if(isset($_SESSION['system_info'][$field]))

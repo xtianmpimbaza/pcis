@@ -25,7 +25,7 @@
             $.ajax({
                 url: $url,
                 error: err => {
-                    console.log()
+                    console.log(err)
                     alert("An error occured")
                 },
                 success: function (resp) {
@@ -125,4 +125,4 @@
         <button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button>
     </div>
 </div>
-<div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>
+<!--<div class="jqvmap-label" style="display: none; left: 1093.83px; top: 394.361px;">Idaho</div>-->
