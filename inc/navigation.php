@@ -38,7 +38,7 @@
                                 <a href="<?php echo base_url ?>?page=patients" class="nav-link nav-patients">
                                     <i class="nav-icon fas fa-user-injured"></i>
                                     <p>
-                                        Mothers List
+                                        Mothers
                                     </p>
                                 </a>
                             </li>

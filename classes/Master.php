@@ -302,9 +302,9 @@ Class Master extends DBConnection
             $resp['pid'] = $pid;
             $resp['status'] = 'success';
             if (empty($id))
-                $resp['msg'] = "Patient Details has successfully added.";
+                $resp['msg'] = "Mothers Details has successfully added.";
             else
-                $resp['msg'] = "Patient Details has been updated successfully.";
+                $resp['msg'] = "Mothers Details has been updated successfully.";
             $data = "";
             foreach ($_POST as $k => $v) {
                 if (!in_array($k, array('id', 'fullname', 'code', 'status', 'delete_flag'))) {
