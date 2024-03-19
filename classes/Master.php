@@ -198,7 +198,7 @@ Class Master extends DBConnection
     function delete_reminder()
     {
         extract($_POST);
-        $del = $this->conn->query("DELETE FROM reminders where id = '{$id}'");
+        $del = $this->conn->query("DELETE FROM reminders WHERE id = '{$id}'");
         if ($del) {
             $resp['status'] = 'success';
             $this->settings->set_flashdata('success', "Reminder has been deleted successfully.");
@@ -522,6 +522,9 @@ switch ($action) {
         break;
     case 'delete_doctor':
         echo $Master->delete_doctor();
+        break;
+    case 'delete_reminder':
+        echo $Master->delete_reminder();
         break;
     case 'save_patient':
         echo $Master->save_patient();

@@ -63,22 +63,14 @@
         $('#create_new').click(function () {
             uni_modal("Add New Reminder", "reminders/manage_reminders.php?pid=<?= isset($id) ? $id : '' ?>", 'mid-large')
         })
-        $('.edit_data').click(function(){
-            uni_modal("Update Reminder Details","reminders/manage_doctor.php?id="+$(this).attr('data-id'))
-        })
 
         $('.delete_data').click(function(){
-            _conf("Are you sure to delete this Reminder permanently?","delete_doctor",[$(this).attr('data-id')])
+            _conf("Are you sure to delete this Reminder permanently?","delete_reminder",[$(this).attr('data-id')])
         })
-
-        $('.table td, .table th').addClass('py-1 px-2 align-middle')
-        $('.table').dataTable({
-            columnDefs: [
-                { orderable: false, targets: 4 }
-            ],
-        });
     })
-    function delete_doctor($id){
+
+
+    function delete_reminder($id){
         start_loader();
         $.ajax({
             url:_base_url_+"classes/Master.php?f=delete_reminder",
