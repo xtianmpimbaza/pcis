@@ -4,15 +4,6 @@
 </script>
 <?php endif;?>
 
-<style>
-    .img-avatar{
-        width:45px;
-        height:45px;
-        object-fit:cover;
-        object-position:center center;
-        border-radius:100%;
-    }
-</style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
 		<h3 class="card-title">List of Mothers</h3>

@@ -195,6 +195,20 @@ Class Master extends DBConnection
         return json_encode($resp);
     }
 
+    function delete_reminder()
+    {
+        extract($_POST);
+        $del = $this->conn->query("DELETE FROM reminders where id = '{$id}'");
+        if ($del) {
+            $resp['status'] = 'success';
+            $this->settings->set_flashdata('success', "Reminder has been deleted successfully.");
+        } else {
+            $resp['status'] = 'failed';
+            $resp['error'] = $this->conn->error;
+        }
+        return json_encode($resp);
+    }
+
     function save_room()
     {
         extract($_POST);
@@ -429,6 +443,42 @@ Class Master extends DBConnection
         return json_encode($resp);
     }
 
+    function save_reminder()
+    {
+        extract($_POST);
+        $data = "";
+        foreach ($_POST as $k => $v) {
+            if (!in_array($k, array('id'))) {
+                if (!is_numeric($v))
+                    $v = $this->conn->real_escape_string($v);
+                if (!empty($data)) $data .= ",";
+                $data .= " `{$k}`='{$v}' ";
+            }
+        }
+        if (empty($id)) {
+            $sql = "INSERT INTO `reminders` set {$data} ";
+        } else {
+            $sql = "UPDATE `reminders` set {$data} where id = '{$id}' ";
+        }
+
+        $save = $this->conn->query($sql);
+        if ($save) {
+            $rid = !empty($id) ? $id : $this->conn->insert_id;
+            $resp['status'] = 'success';
+            if (empty($id))
+                $resp['msg'] = "Patient Admission Record has successfully added.";
+            else
+                $resp['msg'] = "Patient Admission Record has been updated successfully.";
+        } else {
+            $resp['status'] = 'failed';
+            $resp['msg'] = "An error occured.";
+            $resp['err'] = $this->conn->error . "[{$sql}]";
+        }
+        if ($resp['status'] == 'success')
+            $this->settings->set_flashdata('success', $resp['msg']);
+        return json_encode($resp);
+    }
+
     function delete_patient_admission()
     {
         extract($_POST);
@@ -487,6 +537,9 @@ switch ($action) {
         break;
     case 'save_patient_admission':
         echo $Master->save_patient_admission();
+        break;
+    case 'save_reminders':
+        echo $Master->save_reminder();
         break;
     case 'delete_patient_admission':
         echo $Master->delete_patient_admission();

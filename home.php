@@ -9,28 +9,13 @@
 <h1> Admin Panel</h1>
 <hr class="border-info">
 <div class="row">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
-        <div class="info-box bg-gradient-light shadow">
-            <span class="info-box-icon bg-gradient-info elevation-1"><i class="fas fa-th-list"></i></span>
 
-            <div class="info-box-content">
-            <span class="info-box-text">Room Types</span>
-            <span class="info-box-number text-right">
-                <?php 
-                    echo $conn->query("SELECT * FROM `room_type_list` where delete_flag =0 ")->num_rows;
-                ?>
-            </span>
-            </div>
-            <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-    </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
         <div class="info-box bg-gradient-light shadow">
             <span class="info-box-icon bg-gradient-primary elevation-1"><i class="fas fa-door-open"></i></span>
 
             <div class="info-box-content">
-            <span class="info-box-text">Total Rooms</span>
+            <span class="info-box-text">Rooms/Wards</span>
             <span class="info-box-number text-right">
                 <?php 
                     echo $conn->query("SELECT * FROM `room_list` where delete_flag = 0 ")->num_rows;
@@ -41,7 +26,7 @@
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
         <div class="info-box bg-gradient-light shadow">
             <span class="info-box-icon bg-gradient-secondary elevation-1"><i class="fas fa-user-nurse"></i></span>
 
@@ -57,7 +42,7 @@
         </div>
         <!-- /.info-box -->
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
         <div class="info-box bg-gradient-light shadow">
             <span class="info-box-icon bg-gradient-primary elevation-1"><i class="fas fa-user-injured"></i></span>
 

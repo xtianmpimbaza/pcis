@@ -32,16 +32,16 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
 <div class="content py-3">
     <div class="card card-teal card-outline shadow rounded-0">
         <div class="card-header rounded-0">
-            <h3 class="card-title"><b><span class="text-muted">Patient Code:</span>
+            <h3 class="card-title"><b><span class="text-muted">Pregnant Mother's Code:</span>
                     <span><?= isset($code) ? $code : "N/A" ?></span></b></h3>
         </div>
         <div class="card-body rounded-0">
             <div class="container-fluid">
                 <fieldset>
                     <div class="row">
-                        <div class="col-4 border bg-gradient-primary text-white">Mother's Code</div>
+                        <div class="col-4 border bg-gradient-primary text-white">Code</div>
                         <div class="col-8 border"><?= isset($code) ? $code : '' ?></div>
-                        <div class="col-4 border bg-gradient-primary text-white">Mother's Fullname</div>
+                        <div class="col-4 border bg-gradient-primary text-white">Fullname</div>
                         <div class="col-8 border"><?= isset($fullname) ? $fullname : '' ?></div>
                         <div class="col-4 border bg-gradient-primary text-white">Birthday</div>
                         <div class="col-8 border"><?= isset($dob) ? date("M d, Y", strtotime($dob)) : '' ?></div>
@@ -49,13 +49,13 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
                         <div class="col-8 border"><?= isset($address) ? $address : '' ?></div>
                     </div>
                 </fieldset>
-                <div class="row">
+                <div class="row  pt-5">
                     <div class="col-md-6">
                         <fieldset>
-                            <legend class="text-primary border-bottom">History</legend>
+                            <h3 class="border-bottom">History</h3>
                             <div class="col-12 text-right">
-                                <button class="btn btn-primary btn-sm btn-flat" type="button" id="add_history"><i
-                                            class="fa fa-plus"></i> Add Record
+                                <button class="btn btn-primary btn-sm mb-2" type="button" id="add_history"><i
+                                            class="fa fa-plus"></i> Add new
                                 </button>
                             </div>
                             <table class="table table-striped table-bordered">
@@ -97,10 +97,10 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
                     </div>
                     <div class="col-md-6">
                         <fieldset>
-                            <legend class="text-primary border-bottom">Admission History</legend>
+                            <h3 class="border-bottom">Admission History</h3>
                             <div class="col-12 text-right">
-                                <button class="btn btn-primary btn-sm btn-flat" type="button" id="add_admission"><i
-                                            class="fa fa-plus"></i> Add Record
+                                <button class="btn btn-primary btn-sm mb-2" type="button" id="add_admission"><i
+                                            class="fa fa-plus"></i> Add new
                                 </button>
                             </div>
                             <table class="table table-striped table-bordered">

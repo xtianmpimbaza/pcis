@@ -51,7 +51,6 @@
                                 </a>
                             </li>
                             <?php if ($_settings->userdata('type') == 1): ?>
-
                                 <li class="nav-item dropdown">
                                     <a href="<?php echo base_url ?>?page=room_types" class="nav-link nav-room_types">
                                         <i class="nav-icon fas fa-th-list"></i>
@@ -60,14 +59,7 @@
                                         </p>
                                     </a>
                                 </li>
-<!--                                <li class="nav-item dropdown">-->
-<!--                                    <a href="--><?php //echo base_url ?><!--?page=room_types" class="nav-link nav-room_types">-->
-<!--                                        <i class="nav-icon fas fa-th-list"></i>-->
-<!--                                        <p>-->
-<!--                                            Appointments-->
-<!--                                        </p>-->
-<!--                                    </a>-->
-<!--                                </li>-->
+
                                 <li class="nav-item dropdown">
                                     <a href="<?php echo base_url ?>?page=rooms" class="nav-link nav-rooms">
                                         <i class="nav-icon fas fa-door-open"></i>
@@ -84,16 +76,23 @@
                                         </p>
                                     </a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a href="<?php echo base_url ?>?page=system_info" class="nav-link nav-system_info">
-                                        <i class="nav-icon fas fa-cogs"></i>
-                                        <p>
-                                            Settings
-                                        </p>
-                                    </a>
-                                </li>
+<!--                                <li class="nav-item dropdown">-->
+<!--                                    <a href="--><?php //echo base_url ?><!--?page=system_info" class="nav-link nav-system_info">-->
+<!--                                        <i class="nav-icon fas fa-cogs"></i>-->
+<!--                                        <p>-->
+<!--                                            Settings-->
+<!--                                        </p>-->
+<!--                                    </a>-->
+<!--                                </li>-->
                             <?php endif; ?>
-
+                            <li class="nav-item dropdown">
+                                <a href="<?php echo base_url ?>?page=reminders" class="nav-link nav-reminders">
+                                    <i class="nav-icon fas fa-bell"></i>
+                                    <p>
+                                        Reminders
+                                    </p>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
@@ -129,7 +128,6 @@
             if ($('.nav-link.nav-' + page).hasClass('nav-is-tree') == true) {
                 $('.nav-link.nav-' + page).parent().addClass('menu-open')
             }
-
         }
 
         $('#receive-nav').click(function () {
