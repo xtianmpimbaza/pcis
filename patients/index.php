@@ -75,7 +75,7 @@
 			uni_modal("Update patient Details","patients/manage_patient.php?id="+$(this).attr('data-id'),'mid-large')
 		})
 		$('.table td,.table th').addClass('py-1 px-2 align-middle')
-		$('.table').dataTable();
+
 	})
 
     function delete_patient($id){

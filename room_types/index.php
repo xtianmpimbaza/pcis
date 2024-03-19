@@ -1,16 +1,8 @@
-<style>
-    .img-thumb-path{
-        width:100px;
-        height:80px;
-        object-fit:scale-down;
-        object-position:center center;
-    }
-</style>
-<div class="card card-outline card-teal rounded-0 shadow">
+<div class="card card-outline rounded-0 ">
 	<div class="card-header">
 		<h3 class="card-title">List of Room Types</h3>
 		<div class="card-tools">
-			<a href="javascript:void(0)" id="create_new" class="btn btn-flat btn-sm btn-primary"><span class="fas fa-plus"></span>  Add New Room Type</a>
+			<a href="javascript:void(0)" id="create_new" class="btn btn-sm btn-primary"><span class="fas fa-plus"></span>  Add New Room Type</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -80,11 +72,6 @@
 			uni_modal("Room Type Details","room_types/view_room_type.php?id="+$(this).attr('data-id'))
 		})
 		$('.table td, .table th').addClass('py-1 px-2 align-middle')
-		$('.table').dataTable({
-            columnDefs: [
-                { orderable: false, targets: 4 }
-            ],
-        });
 	})
 	function delete_room_type($id){
 		start_loader();

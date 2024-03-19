@@ -6,11 +6,11 @@
         object-position:center center;
     }
 </style>
-<div class="card card-outline card-teal rounded-0 shadow">
+<div class="card card-outline rounded-0">
 	<div class="card-header">
 		<h3 class="card-title">List of Room</h3>
 		<div class="card-tools">
-			<a href="javascript:void(0)" id="create_new" class="btn btn-flat btn-sm btn-primary"><span class="fas fa-plus"></span>  Add New Room</a>
+			<a href="javascript:void(0)" id="create_new" class="btn btn-sm btn-primary"> Add New Room</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -83,11 +83,7 @@
 			uni_modal("Room Details","rooms/view_room.php?id="+$(this).attr('data-id'))
 		})
 		$('.table td, .table th').addClass('py-1 px-2 align-middle')
-		$('.table').dataTable({
-            columnDefs: [
-                { orderable: false, targets: 5 }
-            ],
-        });
+
 	})
 	function delete_room($id){
 		start_loader();

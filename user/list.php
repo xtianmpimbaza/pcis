@@ -24,15 +24,6 @@
 		<div class="container-fluid">
         <div class="container-fluid">
 			<table class="table table-hover table-striped">
-				<!-- <colgroup>
-					<col width="5%">
-					<col width="10%">
-					<col width="20%">
-					<col width="20%">
-					<col width="15%">
-					<col width="15%">
-					<col width="10%">
-				</colgroup> -->
 				<thead>
 					<tr>
 						<th>#</th>
@@ -84,7 +75,7 @@
 			_conf("Are you sure to delete this User permanently?","delete_user",[$(this).attr('data-id')])
 		})
 		$('.table td,.table th').addClass('py-1 px-2 align-middle')
-		$('.table').dataTable();
+
 		$('.verify_user').click(function(){
 			_conf("Are you sure to verify <b>"+$(this).attr('data-name')+"<b/>?","verify_user",[$(this).attr('data-id')])
 		})

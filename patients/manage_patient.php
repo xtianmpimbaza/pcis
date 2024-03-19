@@ -33,28 +33,8 @@ if(isset($_GET['id'])){
                 <input type="text" name="firstname" id="firstname" class="form-control form-control-border" placeholder="First Name" value ="<?php echo isset($firstname) ? $firstname : '' ?>" required>
             </div>
             <div class="form-group col-md-6">
-                <label for="middlename" class="control-label">Middle Name <em>(optional)</em></label>
-                <input type="text" name="middlename" id="middlename" class="form-control form-control-border" placeholder="Middle Name (optional)" value ="<?php echo isset($middlename) ? $middlename : '' ?>">
-            </div>
-            <div class="form-group col-md-6">
                 <label for="lastname" class="control-label">Last Name</label>
                 <input type="text" name="lastname" id="lastname" class="form-control form-control-border" placeholder="Last Name" value ="<?php echo isset($lastname) ? $lastname : '' ?>" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="suffix" class="control-label">Suffix <em>(If Any)</em></label>
-                <input type="text" name="suffix" id="suffix" class="form-control form-control-border" placeholder="Ms/Mrs" value ="<?php echo isset($middlename) ? $middlename : '' ?>">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-6">
-                <label for="gender" class="control-label">Gender</label>
-                <select name="gender" id="gender" class="form-control form-control-border" reqiured>
-                    <option <?= isset($gender) && $gender == 'Female' ? 'selected' : '' ?>>Female</option>
-                </select>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="dob" class="control-label">Date of Birth</label>
-                <input type="date" name="dob" id="dob" class="form-control form-control-border" placeholder="Contact #" value ="<?php echo isset($dob) ? date("Y-m-d",strtotime($dob)) : '' ?>" required>
             </div>
         </div>
         <div class="row">
@@ -68,9 +48,13 @@ if(isset($_GET['id'])){
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-6">
                 <label for="address" class="control-label">Address</label>
-                <textarea rows="3" name="address" id="address" class="form-control form-control-sm rounded-0" placeholder="Block 6, Lot 23, Here Subd., There City, 2306" required><?php echo isset($address) ? $address : '' ?></textarea>
+                <input name="address" id="address" class="form-control form-control-border" placeholder="Block 6, Mubs street" required value ="<?php echo isset($address) ? $address : '' ?>" />
+            </div>
+            <div class="form-group col-md-6">
+                <label for="dob" class="control-label">Date of Birth</label>
+                <input type="date" name="dob" id="dob" class="form-control form-control-border" placeholder="Contact #" value ="<?php echo isset($dob) ? date("Y-m-d",strtotime($dob)) : '' ?>" required>
             </div>
         </div>
     </form>
