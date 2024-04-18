@@ -86,7 +86,8 @@
 		$('.view_data').click(function(){
 			uni_modal("Room Type Details","room_types/view_room_type.php?id="+$(this).attr('data-id'))
 		})
-		$('.table td, .table th').addClass('py-1 px-2 align-middle')
+        $('.table td,.table th').addClass('py-1 px-2 align-middle')
+        $('.table').dataTable();
 	})
 	function delete_room_type($id){
 		start_loader();

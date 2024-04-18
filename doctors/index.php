@@ -100,6 +100,9 @@
 		$('.view_data').click(function(){
 			uni_modal("Doctor Details","doctors/view_doctor.php?id="+$(this).attr('data-id'))
 		})
+
+        $('.table td,.table th').addClass('py-1 px-2 align-middle')
+        $('.table').dataTable();
 	})
 
 	function delete_doctor($id){

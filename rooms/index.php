@@ -97,7 +97,8 @@
 		$('.view_data').click(function(){
 			uni_modal("Room Details","rooms/view_room.php?id="+$(this).attr('data-id'))
 		})
-		$('.table td, .table th').addClass('py-1 px-2 align-middle')
+        $('.table td,.table th').addClass('py-1 px-2 align-middle')
+        $('.table').dataTable();
 
 	})
 	function delete_room($id){
