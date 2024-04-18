@@ -32,25 +32,9 @@
                 ?>
             </div>
         </section>
-        <!-- /.content -->
 
-<!--        <div class="modal fade rounded-0" id="uni_modal" role='dialog'>-->
-<!--            <div class="modal-dialog modal-md modal-dialog-centered rounded-0" role="document">-->
-<!--                <div class="modal-content rounded-0">-->
-<!--                    <div class="modal-header rounded-0">-->
-<!--                        <h5 class="modal-title"></h5>-->
-<!--                    </div>-->
-<!--                    <div class="modal-body rounded-0">-->
-<!--                    </div>-->
-<!--                    <div class="modal-footer">-->
-<!--                        <button type="button" class="btn btn-primary btn-flat" id='submit'-->
-<!--                                onclick="$('#uni_modal form').submit()">Save-->
-<!--                        </button>-->
-<!--                        <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+
+        <!-- Modals  -->
 
         <div class="modal fade rounded-0" id="uni_modal_right" role='dialog'>
             <div class="modal-dialog modal-full-height  modal-md rounded-0" role="document">
@@ -85,7 +69,7 @@
                         <div id="delete_content"></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary btn-flat" id='confirm' onclick="">Continue</button>
+                        <button type="button" class="btn btn-primary btn-flat" id='confirm' onclick="">Confirm</button>
                         <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Close</button>
                     </div>
                 </div>
