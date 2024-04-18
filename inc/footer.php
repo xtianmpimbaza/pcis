@@ -1,5 +1,6 @@
 <script>
     $(document).ready(function () {
+
         window.viewer_modal = function ($src = '') {
             start_loader()
             var t = $src.split('.')
@@ -20,6 +21,7 @@
             end_loader()
 
         }
+
         window.uni_modal = function ($title = '', $url = '', $size = "") {
             start_loader()
             $.ajax({
@@ -32,22 +34,25 @@
                     if (resp) {
                         $('#uni_modal .modal-title').html($title)
                         $('#uni_modal .modal-body').html(resp)
+
                         if ($size != '') {
                             $('#uni_modal .modal-dialog').addClass($size + '  modal-dialog-centered')
                         } else {
                             $('#uni_modal .modal-dialog').removeAttr("class").addClass("modal-dialog modal-md modal-dialog-centered")
                         }
+
                         $('#uni_modal').modal({
                             show: true,
                             backdrop: 'static',
                             keyboard: false,
-                            focus: true
+                            focus: true,
                         })
                         end_loader()
                     }
                 }
             })
         }
+
         window._conf = function ($msg = '', $func = '', $params = []) {
             $('#confirm_modal #confirm').attr('onclick', $func + "(" + $params.join(',') + ")")
             $('#confirm_modal .modal-body').html($msg)

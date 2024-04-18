@@ -57,10 +57,18 @@ if(isset($_GET['id'])){
                 <input type="date" name="dob" id="dob" class="form-control form-control-border" placeholder="Contact #" value ="<?php echo isset($dob) ? date("Y-m-d",strtotime($dob)) : '' ?>" required>
             </div>
         </div>
+        <div class="row">
+
+            <div class="form-group container text-right">
+                <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Save" required>
+                <input type="button" name="clear" id="clear" class="btn btn-dark" value="Cancel">
+            </div>
+        </div>
     </form>
 </div>
 <script>
     $(function(){
+
         $('#uni_modal #patient-form').submit(function(e){
             e.preventDefault();
             var _this = $(this)
@@ -101,6 +109,14 @@ if(isset($_GET['id'])){
                     end_loader();
                 }
             })
+        })
+
+        $('#uni_modal #clear').click(function(e){
+            e.preventDefault();
+            alert('done')
+            var _this = $(this)
+            $('.pop-msg').remove()
+
         })
     })
 </script>

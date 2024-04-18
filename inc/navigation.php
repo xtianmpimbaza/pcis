@@ -93,6 +93,14 @@
                                     </p>
                                 </a>
                             </li>
+<!--                            <li class="nav-item dropdown">-->
+<!--                                <a href="--><?php //echo base_url ?><!--?page=reports" class="nav-link nav-reminders">-->
+<!--                                    <i class="nav-icon fas fa-bell"></i>-->
+<!--                                    <p>-->
+<!--                                        Reports-->
+<!--                                    </p>-->
+<!--                                </a>-->
+<!--                            </li>-->
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
