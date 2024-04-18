@@ -38,6 +38,12 @@ if(isset($_GET['id'])){
             <label for="contact" class="control-label">Contact #</label>
             <input type="text" name="contact" id="contact" class="form-control form-control-border" placeholder="Enter Contact #" value ="<?php echo isset($contact) ? $contact : '' ?>" required>
         </div>
+        <div class="row">
+            <div class="form-group container text-right">
+                <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Save" required>
+                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
     </form>
 </div>
 <script>

@@ -30,6 +30,14 @@ if(isset($_GET['id'])){
             <label for="description" class="control-label">Description</label>
             <textarea rows="3" name="description" id="description" class="form-control form-control-sm rounded-0" placeholder="Write the room type's description here." required><?php echo isset($description) ? $description : '' ?></textarea>
         </div>
+
+        <div class="row">
+            <div class="form-group container text-right">
+                <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Save" required>
+                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
     </form>
 </div>
 <script>

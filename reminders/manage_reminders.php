@@ -16,16 +16,17 @@ require_once('../config.php');
     <form action="" id="reminders-form">
 <!--        <input type="hidden" name="id" value="--><?php //echo isset($id) ? $id : '' ?><!--">-->
 <!--        <input type="hidden" name="patient_id" value="--><?php //echo isset($_GET['pid']) ? $_GET['pid'] : '' ?><!--">-->
+
         <div class="row">
             <div class="form-group container">
                 <label for="room_id" class="control-label">Mother/Patient's email</label>
-                <input type="text" name="email" class="form-control form-control_border">
+                <input type="email" name="email" class="form-control form-control_border" required>
             </div>
         </div>
          <div class="row">
             <div class="form-group container">
                 <label for="room_id" class="control-label">Message</label>
-                <input type="text" name="message" class="form-control form-control_border">
+                <input type="text" name="message" class="form-control form-control_border" required>
             </div>
         </div>
 
@@ -33,9 +34,17 @@ require_once('../config.php');
             <div class="form-group col-lg-6">
                 <label for="date_admitted" class="control-label">Due Date</label>
                 <input type="datetime-local" name="due_date" id="due_date"
-                       class="form-control form-control-border">
+                       class="form-control form-control-border" required>
             </div>
         </div>
+
+        <div class="row">
+            <div class="form-group container text-right">
+                <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Save" required>
+                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
 </div>
 </form>
 </div>

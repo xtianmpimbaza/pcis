@@ -52,7 +52,7 @@
 									<div class="dropdown-divider"></div>
 				                    <a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-dark"></span> Edit</a>
 									<div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span><?php echo $row['id'] ?> Delete</a>
 				                  </div>
 							</td>
 						</tr>
@@ -63,6 +63,27 @@
 		</div>
 	</div>
 </div>
+
+
+<div class="modal fade rounded-0" id="uni_modal" role='dialog'>
+    <div class="modal-dialog modal-md modal-dialog-centered rounded-0" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header rounded-0">
+                <h5 class="modal-title"></h5>
+            </div>
+            <div class="modal-body rounded-0">
+            </div>
+            <div class="modal-footer">
+<!--                <button type="button" class="btn btn-primary btn-flat" id='submit'-->
+<!--                        onclick="$('#uni_modal form').submit()">Save-->
+<!--                </button>-->
+<!--                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
@@ -70,6 +91,7 @@
 		})
 		$('#create_new').click(function(){
 			uni_modal("Add New Mother Details","patients/manage_patient.php",'mid-large')
+
 		})
 		$('.edit_data').click(function(){
 			uni_modal("Update patient Details","patients/manage_patient.php?id="+$(this).attr('data-id'),'mid-large')

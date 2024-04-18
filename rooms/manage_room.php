@@ -46,6 +46,14 @@ if(isset($_GET['id'])){
             <label for="capacity" class="control-label">Capacity</label>
             <input type="number" name="capacity" id="capacity" class="form-control form-control-border" placeholder="Enter Capacity" value ="<?php echo isset($capacity) ? $capacity : 0 ?>" required>
         </div>
+
+        <div class="row">
+            <div class="form-group container text-right">
+                <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Save" required>
+                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
     </form>
 </div>
 <script>

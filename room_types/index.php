@@ -57,6 +57,21 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade rounded-0" id="uni_modal" role='dialog'>
+    <div class="modal-dialog modal-md modal-dialog-centered rounded-0" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header rounded-0">
+                <h5 class="modal-title"></h5>
+            </div>
+            <div class="modal-body rounded-0">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 	$(document).ready(function(){
         $('#create_new').click(function(){
