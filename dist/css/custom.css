@@ -377,3 +377,9 @@ table[data-placeholder='true'] tbody:empty:after {
     padding: 0.5em;
     text-align: center;
 }
+
+
+thead {
+    background-color: rgba(47, 29, 19, 1);
+    color: #fff;
+}

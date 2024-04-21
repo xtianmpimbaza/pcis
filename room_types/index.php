@@ -8,20 +8,13 @@
 	<div class="card-body">
 		<div class="container-fluid">
         <div class="container-fluid">
-			<table class="table table-hover table-striped">
-				<colgroup>
-					<col width="5%">
-					<col width="20%">
-					<col width="25%">
-					<col width="30%">
-					<col width="20%">
-				</colgroup>
+            <table id="example" class="display" style="width:100%">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Date Created</th>
 						<th>Room Type</th>
 						<th>Descriptiom</th>
+                        <th>Date Created</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -33,9 +26,9 @@
 					?>
 						<tr>
 							<td class="text-center"><?php echo $i++; ?></td>
-							<td class=""><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
 							<td><?php echo ($row['room']) ?></td>
-							<td class="truncate-1"><?php echo $row['description'] ?></td>
+							<td class=""><?php echo $row['description'] ?></td>
+                            <td class=""><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
 				                  		Action

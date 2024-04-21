@@ -9,21 +9,14 @@
     <div class="card-body">
         <div class="container-fluid">
             <div class="container-fluid">
-                <table class="table table-hover table-striped">
-                    <colgroup>
-                        <col width="5%">
-                        <col width="20%">
-                        <col width="25%">
-                        <col width="30%">
-                        <col width="20%">
-                    </colgroup>
+                <table id="example" class="display" style="width:100%">
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Date Created</th>
                         <th>Email</th>
                         <th>Mesage</th>
                         <th>Due time</th>
+                        <th>Date Created</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -35,10 +28,10 @@
                     ?>
                     <tr>
                         <td class="text-center"><?php echo $i++; ?></td>
-                        <td class=""><?php echo date("Y-m-d H:i",strtotime($row['created_at'])) ?></td>
                         <td><?php echo ucwords($row['email']) ?></td>
                         <td><?php echo ucwords($row['message']) ?></td>
-                        <td class="truncate-1"><?php echo $row['due_date'] ?></td>
+                        <td class=""><?php echo $row['due_date'] ?></td>
+                        <td class=""><?php echo date("Y-m-d H:i",strtotime($row['created_at'])) ?></td>
                         <td align="center">
                             <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                 Action

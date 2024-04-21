@@ -96,11 +96,41 @@
     <script src="<?php echo base_url ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Summernote -->
     <script src="<?php echo base_url ?>plugins/summernote/summernote-bs4.min.js"></script>
-    <script src="<?php echo base_url ?>plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?php echo base_url ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?php echo base_url ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
     <script src="<?php echo base_url ?>dist/js/adminlte.js"></script>
+
+    <!-- DataTables -->
+
+<!--    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>-->
+    <script type="text/javascript" src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+
+    <script>
+        new DataTable('#example', {
+            buttons: ['copy', 'excel', 'pdf', 'print'],
+            layout: {
+                topStart: 'buttons'
+            }
+        });
+
+        new DataTable('#example2', {
+            buttons: ['copy', 'excel', 'pdf', 'print'],
+            layout: {
+                topStart: 'buttons'
+            }
+        });
+    </script>
+
+    <!--    ------------- End -------->
+
+
 </div>
 <div class="daterangepicker ltr show-ranges opensright">
     <div class="ranges">

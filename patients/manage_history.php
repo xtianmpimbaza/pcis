@@ -23,22 +23,17 @@ if(isset($_GET['id'])){
     <form action="" id="patient-history-form">
         <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
         <input type="hidden" name="patient_id" value="<?php echo isset($_GET['pid']) ? $_GET['pid'] : '' ?>">
-<!--        <div class="row">-->
-<!--            <div class="form-group col-md-12">-->
-<!--                <label for="illness" class="control-label">Illness Information</label>-->
-<!--                <textarea type="hi" rows="3" name="illness" id="illness" class="form-control form-control-sm rounded-0" required>--><?php //echo isset($illness) ? $illness : '' ?><!--</textarea>-->
-<!--            </div>-->
-<!--        </div>-->
+
         <div class="row">
             <div class="form-group col-md-12">
                 <label for="diagnosis" class="control-label">Diagnosis Information</label>
-                <textarea rows="3" name="diagnosis" id="diagnosis" class="form-control form-control-sm rounded-0"><?php echo isset($diagnosis) ? $diagnosis : '' ?></textarea>
+                <textarea required rows="3" name="diagnosis" id="diagnosis" class="form-control form-control-sm rounded-0"><?php echo isset($diagnosis) ? $diagnosis : '' ?></textarea>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-12">
                 <label for="treatment" class="control-label">Treatment Information</label>
-                <textarea rows="3" name="treatment" id="treatment" class="form-control form-control-sm rounded-0"><?php echo isset($treatment) ? $treatment : '' ?></textarea>
+                <textarea required rows="3" name="treatment" id="treatment" class="form-control form-control-sm rounded-0"><?php echo isset($treatment) ? $treatment : '' ?></textarea>
             </div>
         </div>
         <div class="row">
@@ -61,8 +56,18 @@ if(isset($_GET['id'])){
                 <textarea rows="3" name="remarks" id="remarks" class="form-control form-control-sm rounded-0"><?php echo isset($remarks) ? $remarks : '' ?></textarea>
             </div>
         </div>
+
+        <div class="row">
+            <div class="form-group container text-right">
+                <input required type="submit" name="submit" id="submit" class="btn btn-primary" value="Save" required>
+                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
     </form>
 </div>
+
+
 <script>
     $(function(){
         $('#uni_modal').on('shown.bs.modal',function(){

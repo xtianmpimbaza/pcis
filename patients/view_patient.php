@@ -58,13 +58,7 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
                                             class="fa fa-plus"></i> Add new
                                 </button>
                             </div>
-                            <table class="table table-striped table-bordered">
-                                <colgroup>
-                                    <col width="20%">
-                                    <col width="35%">
-                                    <col width="25%">
-                                    <col width="20%">
-                                </colgroup>
+                            <table id="example" class="display" style="width:100%">
                                 <thead>
                                 <tr class="bg-gradient-dark">
                                     <th class="px-2 py-1">Date</th>
@@ -97,19 +91,13 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
                     </div>
                     <div class="col-md-6">
                         <fieldset>
-                            <h3 class="border-bottom">Admission History</h3>
+                            <h3 class="border-bottom">Admissions</h3>
                             <div class="col-12 text-right">
                                 <button class="btn btn-primary btn-sm mb-2" type="button" id="add_admission"><i
                                             class="fa fa-plus"></i> Add new
                                 </button>
                             </div>
-                            <table class="table table-striped table-bordered">
-                                <colgroup>
-                                    <col width="20%">
-                                    <col width="35%">
-                                    <col width="25%">
-                                    <col width="20%">
-                                </colgroup>
+                            <table id="example2" class="display" style="width:100%">
                                 <thead>
                                 <tr class="bg-gradient-dark">
                                     <th class="px-2 py-1">Admission Date</th>
@@ -144,6 +132,26 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
         </div>
     </div>
 </div>
+
+<div class="modal fade rounded-0" id="uni_modal" role='dialog'>
+    <div class="modal-dialog modal-md modal-dialog-centered rounded-0" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header rounded-0">
+                <h5 class="modal-title"></h5>
+            </div>
+            <div class="modal-body rounded-0">
+            </div>
+            <div class="modal-footer">
+                <!--                <button type="button" class="btn btn-primary btn-flat" id='submit'-->
+                <!--                        onclick="$('#uni_modal form').submit()">Save-->
+                <!--                </button>-->
+                <!--                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
     $(function () {
         $('#add_history').click(function () {

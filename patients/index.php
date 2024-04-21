@@ -14,63 +14,56 @@
     </div>
     <div class="card-body">
         <div class="container-fluid">
-            <div class="container-fluid">
-                <table class="table table-hover table-striped">
-                    <colgroup>
-                        <col width="5%">
-                        <col width="20%">
-                        <col width="25%">
-                        <col width="30%">
-                        <col width="20%">
-                    </colgroup>
-                    <thead>
+
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Code</th>
+                    <th>Mother Name</th>
+                    <th>Email</th>
+                    <th>Date Added</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $i = 1;
+                $qry = $conn->query("SELECT * from `patient_list` where delete_flag = 0 order by fullname asc ");
+                while ($row = $qry->fetch_assoc()):
+                    ?>
                     <tr>
-                        <th>#</th>
-                        <th>Date Added</th>
-                        <th>Code</th>
-                        <th>Mother Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
+                        <td class=""><?php echo $i++; ?></td>
+                        <td><?php echo($row['code']) ?></td>
+                        <td><?php echo ucwords($row['fullname']) ?></td>
+                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo date("Y-m-d H:i", strtotime($row['date_created'])) ?></td>
+                        <td align="center">
+                            <button type="button"
+                                    class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon"
+                                    data-toggle="dropdown">
+                                Action
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item edit_data"
+                                   href="./?page=patients/view_patient&id=<?= $row['id'] ?>"><span
+                                            class="fa fa-eye text-dark"></span> View Records</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item edit_data" href="javascript:void(0)"
+                                   data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-dark"></span>
+                                    Edit</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item delete_data" href="javascript:void(0)"
+                                   data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span>
+                                    Delete</a>
+                            </div>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    $i = 1;
-                    $qry = $conn->query("SELECT * from `patient_list` where delete_flag = 0 order by fullname asc ");
-                    while ($row = $qry->fetch_assoc()):
-                        ?>
-                        <tr>
-                            <td class="text-center"><?php echo $i++; ?></td>
-                            <td><?php echo date("Y-m-d H:i", strtotime($row['date_created'])) ?></td>
-                            <td><?php echo($row['code']) ?></td>
-                            <td><?php echo ucwords($row['fullname']) ?></td>
-                            <td><?php echo ucwords($row['email']) ?></td>
-                            <td align="center">
-                                <button type="button"
-                                        class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon"
-                                        data-toggle="dropdown">
-                                    Action
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item edit_data"
-                                       href="./?page=patients/view_patient&id=<?= $row['id'] ?>"><span
-                                                class="fa fa-eye text-dark"></span> View Records</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item edit_data" href="javascript:void(0)"
-                                       data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-dark"></span>
-                                        Edit</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item delete_data" href="javascript:void(0)"
-                                       data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span>
-                                        Delete</a>
-                                </div>
-                            </td>
-                        </tr>
-                    <?php endwhile; ?>
-                    </tbody>
-                </table>
-            </div>
+                <?php endwhile; ?>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>

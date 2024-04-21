@@ -53,8 +53,16 @@ if (isset($_GET['id'])) {
                        value="<?= isset($date_discharged) && strtotime($date_discharged) > 0 ? date("Y-m-d H:i", strtotime($date_discharged)) : "" ?>">
             </div>
         </div>
-</div>
-</form>
+
+
+        <div class="row">
+            <div class="form-group container text-right">
+                <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Save" required>
+                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </form>
 </div>
 <script>
     $(function () {
