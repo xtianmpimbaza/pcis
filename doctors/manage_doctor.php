@@ -36,7 +36,7 @@ if(isset($_GET['id'])){
         </div>
         <div class="form-group">
             <label for="contact" class="control-label">Contact #</label>
-            <input type="text" name="contact" id="contact" class="form-control form-control-border" placeholder="Enter Contact #" value ="<?php echo isset($contact) ? $contact : '' ?>" required>
+            <input type="number" name="contact" id="contact" class="form-control form-control-border" placeholder="Enter Contact #" value ="<?php echo isset($contact) ? $contact : '' ?>" required>
         </div>
         <div class="row">
             <div class="form-group container text-right">
@@ -71,7 +71,7 @@ if(isset($_GET['id'])){
 					end_loader();
 				},
                 success:function(resp){
-                    if(resp.status == 'success'){
+                    if(resp.status === 'success'){
                         location.reload();
                     }else if(!!resp.msg){
                         el.addClass("alert-danger")

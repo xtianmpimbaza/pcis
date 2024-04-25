@@ -100,16 +100,14 @@
     <script src="<?php echo base_url ?>dist/js/adminlte.js"></script>
 
     <!-- DataTables -->
-
-<!--    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>-->
-    <script type="text/javascript" src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url ?>plugins/dataTables/js/dataTables.js"></script>
+    <script type="text/javascript" src="<?php echo base_url ?>plugins/dataTables/js/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="<?php echo base_url ?>plugins/dataTables/js/buttons.dataTables.js"></script>
+    <script type="text/javascript" src="<?php echo base_url ?>plugins/dataTables/js/jszip.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url ?>plugins/dataTables/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url ?>plugins/dataTables/js/vfs_fonts.js"></script>
+    <script type="text/javascript" src="<?php echo base_url ?>plugins/dataTables/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url ?>plugins/dataTables/js/buttons.print.min.js"></script>
 
 
     <script>
