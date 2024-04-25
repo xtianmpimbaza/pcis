@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
             </div>
             <div class="form-group col-md-6">
                 <label for="phone" class="control-label">Phone *</label>
-                <input type="text" name="phone" id="phone" class="form-control form-control-border"
+                <input type="number" name="phone" id="phone" class="form-control form-control-border"
                        placeholder="Contact #" value="<?php echo isset($contact) ? $contact : '' ?>" required>
             </div>
         </div>
