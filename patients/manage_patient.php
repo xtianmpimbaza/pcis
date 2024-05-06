@@ -1,5 +1,7 @@
 <?php
 require_once('../config.php');
+
+
 if (isset($_GET['id'])) {
     $qry = $conn->query("SELECT * FROM `patient_list` where id = '{$_GET['id']}'");
     if ($qry->num_rows > 0) {
@@ -15,6 +17,80 @@ if (isset($_GET['id'])) {
         }
     }
 }
+
+
+if (isset($_POST['submit'])) {
+
+    if (empty($_POST['id'])) {
+        $prefix = "MOM" . (date('Ym'));
+        $code = sprintf("%'.04d", 1);
+        while (true) {
+            $check = $conn->query("SELECT * FROM `patient_list` where code = '{$prefix}{$code}'")->num_rows;
+            if ($check > 0) {
+                $code = sprintf("%'.04d", ceil($code) + 1);
+            } else {
+                break;
+            }
+        }
+        $_POST['code'] = $prefix . $code;
+    }
+
+    $_POST['fullname'] = strtoupper($_POST['lastname'] . (!empty($_POST['suffix']) ? ' ' . $_POST['suffix'] : '') . ' ' . $_POST['firstname'] . (!empty($_POST['middlename']) ? ' ' . $_POST['middlename'] : ''));
+    extract($_POST);
+    $data = "";
+
+    foreach ($_POST as $k => $v) {
+        if (in_array($k, array('fullname', 'email', 'phone', 'code', 'status', 'delete_flag'))) {
+            if (!is_numeric($v))
+                $v = $conn->real_escape_string($v);
+            if (!empty($data)) $data .= ",";
+            $data .= " `{$k}`='{$v}' ";
+        }
+    }
+
+    if (empty($id)) {
+        $sql = "INSERT INTO `patient_list` set {$data} ";
+    } else {
+        $sql = "UPDATE `patient_list` set {$data} where id = '{$id}' ";
+    }
+
+    $save = $conn->query($sql);
+
+    if ($save) {
+        $pid = !empty($id) ? $id : $conn->insert_id;
+        $resp['pid'] = $pid;
+        $resp['status'] = 'success';
+        if (empty($id))
+            $errormessage = "Mothers Details has successfully added.";
+        else
+            $errormessage = "Mothers Details has been updated successfully.";
+        $data = "";
+        foreach ($_POST as $k => $v) {
+            if (!in_array($k, array('id', 'fullname', 'code', 'status', 'delete_flag'))) {
+                if (!is_numeric($v))
+                    $v = $conn->real_escape_string($v);
+                if (!empty($data)) $data .= ",";
+                $data .= " ('{$pid}', '{$k}', '{$v}') ";
+            }
+        }
+        // echo $data;exit;
+        if (!empty($data)) {
+            $conn->query("DELETE FROM `patient_details` where patient_id = '{$pid}'");
+            $sql2 = "INSERT INTO `patient_details` (`patient_id`, `meta_field`, `meta_value`) VALUES {$data}";
+            $save2 = $conn->query($sql2);
+            if (!$sql2) {
+                $resp['status'] = 'failed';
+                $errormessage = "An error occured. Error: " . $conn->error;
+                $resp['err'] = $conn->error . "[{$sql}]";
+            }
+        }
+    } else {
+        $resp['status'] = 'failed';
+        $errormessage = "An error occured.";
+        $resp['err'] = $conn->error . "[{$sql}]";
+    }
+}
+
 ?>
 <style>
     #cimg {
@@ -25,7 +101,8 @@ if (isset($_GET['id'])) {
     }
 </style>
 <div class="container-fluid">
-    <form action="" id="patient-form">
+
+    <form id="patient" method="post">
         <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
         <div class="row">
             <div class="form-group col-md-6">
@@ -77,56 +154,56 @@ if (isset($_GET['id'])) {
 
 
 <script>
-    $(function () {
+    // $(function () {
 
-        $('#uni_modal #patient-form').submit(function (e) {
-            e.preventDefault();
-            var _this = $(this)
-            $('.pop-msg').remove()
-            var el = $('<div>')
-            el.addClass("pop-msg alert")
-            el.hide()
-            start_loader();
-            $.ajax({
-                url: _base_url_ + "classes/Master.php?f=save_patient",
-                data: new FormData($(this)[0]),
-                cache: false,
-                contentType: false,
-                processData: false,
-                method: 'POST',
-                type: 'POST',
-                dataType: 'json',
-                error: err => {
-                    console.log(err)
-                    alert_toast("An error occured", 'error');
-                    end_loader();
-                },
-                success: function (resp) {
-                    if (resp.status == 'success') {
-                        location.href = './?page=patients/view_patient&id=' + resp.pid;
-                    } else if (!!resp.msg) {
-                        el.addClass("alert-danger")
-                        el.text(resp.msg)
-                        console.log(resp);
-                        _this.prepend(el)
-                    } else {
-                        el.addClass("alert-danger")
-                        el.text("An error occurred due to unknown reason.")
-                        _this.prepend(el)
-                    }
-                    el.show('slow')
-                    $('html,body,.modal').animate({scrollTop: 0}, 'fast')
-                    end_loader();
-                }
-            })
-        })
-
-        $('#uni_modal #clear').click(function (e) {
-            e.preventDefault();
-            alert('done')
-            var _this = $(this)
-            $('.pop-msg').remove()
-
-        })
-    })
+        // $('#uni_modal #patient-form').submit(function (e) {
+        //     e.preventDefault();
+        //     var _this = $(this)
+        //     $('.pop-msg').remove()
+        //     var el = $('<div>')
+        //     el.addClass("pop-msg alert")
+        //     el.hide()
+        //     start_loader();
+        //     $.ajax({
+        //         url: _base_url_ + "classes/Master.php?f=save_patient",
+        //         data: new FormData($(this)[0]),
+        //         cache: false,
+        //         contentType: false,
+        //         processData: false,
+        //         method: 'POST',
+        //         type: 'POST',
+        //         dataType: 'json',
+        //         error: err => {
+        //             console.log(err)
+        //             alert_toast("An error occured", 'error');
+        //             end_loader();
+        //         },
+        //         success: function (resp) {
+        //             if (resp.status == 'success') {
+        //                 location.href = './?page=patients/view_patient&id=' + resp.pid;
+        //             } else if (!!resp.msg) {
+        //                 el.addClass("alert-danger")
+        //                 el.text(resp.msg)
+        //                 console.log(resp);
+        //                 _this.prepend(el)
+        //             } else {
+        //                 el.addClass("alert-danger")
+        //                 el.text("An error occurred due to unknown reason.")
+        //                 _this.prepend(el)
+        //             }
+        //             el.show('slow')
+        //             $('html,body,.modal').animate({scrollTop: 0}, 'fast')
+        //             end_loader();
+        //         }
+        //     })
+        // })
+        //
+        // $('#uni_modal #clear').click(function (e) {
+        //     e.preventDefault();
+        //     alert('done')
+        //     var _this = $(this)
+        //     $('.pop-msg').remove()
+        //
+        // })
+    // })
 </script>
