@@ -25,7 +25,7 @@ if (isset($_GET['id'])) {
     }
 </style>
 <div class="container-fluid">
-    <form action="" id="patient-form">
+    <form action="" id="mother-form">
         <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
         <div class="row">
             <div class="form-group col-md-6">
@@ -79,7 +79,7 @@ if (isset($_GET['id'])) {
 <script>
     $(function () {
 
-        $('#uni_modal #patient-form').submit(function (e) {
+        $('#uni_modal #mother-form').submit(function (e) {
             e.preventDefault();
             var _this = $(this)
             $('.pop-msg').remove()
@@ -88,7 +88,7 @@ if (isset($_GET['id'])) {
             el.hide()
             start_loader();
             $.ajax({
-                url: _base_url_ + "classes/Master.php?f=save_patient",
+                url: _base_url_ + "classes/Master.php?f=save_mother",
                 data: new FormData($(this)[0]),
                 cache: false,
                 contentType: false,
@@ -103,7 +103,7 @@ if (isset($_GET['id'])) {
                 },
                 success: function (resp) {
                     if (resp.status == 'success') {
-                        location.href = './?page=patients/view_patient&id=' + resp.pid;
+                        location.href = './?page=mothers/view_mother&id=' + resp.pid;
                     } else if (!!resp.msg) {
                         el.addClass("alert-danger")
                         el.text(resp.msg)

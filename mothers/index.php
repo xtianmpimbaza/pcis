@@ -47,7 +47,7 @@
                             </button>
                             <div class="dropdown-menu" role="menu">
                                 <a class="dropdown-item edit_data"
-                                   href="./?page=patients/view_patient&id=<?= $row['id'] ?>"><span
+                                   href="./?page=mothers/view_mother&id=<?= $row['id'] ?>"><span
                                             class="fa fa-eye text-dark"></span> View Records</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item edit_data" href="javascript:void(0)"
@@ -77,12 +77,6 @@
             </div>
             <div class="modal-body rounded-0">
             </div>
-            <div class="modal-footer">
-                <!--                <button type="button" class="btn btn-primary btn-flat" id='submit'-->
-                <!--                        onclick="$('#uni_modal form').submit()">Save-->
-                <!--                </button>-->
-                <!--                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>-->
-            </div>
         </div>
     </div>
 </div>
@@ -91,14 +85,14 @@
 <script>
     $(document).ready(function () {
         $('.delete_data').click(function () {
-            _conf("Are you sure to delete this user permanently?", "delete_patient", [$(this).attr('data-id')])
+            _conf("Are you sure to delete this user permanently?", "delete_mother", [$(this).attr('data-id')])
         })
         $('#create_new').click(function () {
-            uni_modal("Add New Mother Details", "patients/manage_patient.php", 'mid-large')
+            uni_modal("Add New Mother Details", "mothers/manage_mother.php", 'mid-large')
 
         })
         $('.edit_data').click(function () {
-            uni_modal("Update patient Details", "patients/manage_patient.php?id=" + $(this).attr('data-id'), 'mid-large')
+            uni_modal("Update mother Details", "mothers/manage_mother.php?id=" + $(this).attr('data-id'), 'mid-large')
         })
 
         $('.table td,.table th').addClass('py-1 px-2 align-middle')
@@ -113,18 +107,13 @@
                 'pdf'
             ]
         });
-        // $('.table').DataTable( {
-        //     dom: 'Bfrtip',
-        //     buttons: [
-        //         'print'
-        //     ]
-        // } );
+
     })
 
-    function delete_patient($id) {
+    function delete_mother($id) {
         start_loader();
         $.ajax({
-            url: _base_url_ + "classes/Master.php?f=delete_patient",
+            url: _base_url_ + "classes/Master.php?f=delete_mother",
             method: "POST",
             data: {id: $id},
             dataType: "json",
@@ -143,4 +132,5 @@
             }
         })
     }
+
 </script>

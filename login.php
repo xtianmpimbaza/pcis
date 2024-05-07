@@ -3,9 +3,7 @@
 <html lang="en" class="" style="height: auto;">
 <?php require_once('inc/header.php') ?>
 <body class="hold-transition ">
-<script>
-    start_loader()
-</script>
+
 <style>
     html, body {
         height: calc(100%) !important;
@@ -13,7 +11,7 @@
     }
 
     body {
-        background-image: url("<?php echo validate_image($_settings->info('cover')) ?>");
+        background-image: url("uploads/cover-1710801198.png");
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -43,8 +41,9 @@
 
     <div class="col-7 d-flex align-items-center justify-content-center">
         <div class="">
-            <center><img src="<?= validate_image($_settings->info('logo')) ?>" alt="" id="logo-img"></center>
-            <h1 class="text-center login-title"><b><?php echo $_settings->info('name') ?></b></h1>
+
+            <center><img src="uploads/logo-1707789437.png" alt="" id="logo-img"></center>
+            <h1 class="text-center login-title"><b>PREGNANCY CARE INFORMATION SYSTEM</b></h1>
         </div>
     </div>
 
@@ -97,10 +96,6 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        end_loader();
-    })
-</script>
+
 </body>
 </html>

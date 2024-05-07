@@ -12,9 +12,12 @@
             alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
         </script>
     <?php endif; ?>
+
     <?php $page = isset($_GET['page']) ? $_GET['page'] : 'home'; ?>
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper pt-3" style="min-height: 567.854px;">
+
 
         <!-- Main content -->
         <section class="content ">
@@ -27,7 +30,6 @@
                         include $page . '/index.php';
                     else
                         include $page . '.php';
-
                 }
                 ?>
             </div>
@@ -50,6 +52,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="modal fade rounded-0" id="viewer_modal" role='dialog'>
             <div class="modal-dialog modal-md rounded-0" role="document">
                 <div class="modal-content">
@@ -59,6 +63,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="modal fade" id="confirm_modal" role='dialog'>
             <div class="modal-dialog modal-md modal-dialog-centered rounded-0" role="document">
                 <div class="modal-content">
@@ -75,6 +81,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
     <!-- /.content-wrapper -->
     <?php require_once('inc/footer.php') ?>

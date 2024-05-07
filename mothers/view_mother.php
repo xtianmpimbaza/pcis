@@ -13,10 +13,10 @@ if (isset($_GET['id'])) {
             ${$row['meta_field']} = $row['meta_value'];
         }
     } else {
-        echo "<script> alert('Unknown Patient ID.'); location.href = './?page=patients';</script>";
+        echo "<script> alert('Unknown Mother ID.'); location.href = './?page=mothers';</script>";
     }
 } else {
-    echo "<script> alert('Patient ID is required.'); location.href = './?page=patients';</script>";
+    echo "<script> alert('Mother ID is required.'); location.href = './?page=mothers';</script>";
 }
 
 $doctors_arr = [];
@@ -141,12 +141,6 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
             </div>
             <div class="modal-body rounded-0">
             </div>
-            <div class="modal-footer">
-                <!--                <button type="button" class="btn btn-primary btn-flat" id='submit'-->
-                <!--                        onclick="$('#uni_modal form').submit()">Save-->
-                <!--                </button>-->
-                <!--                <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>-->
-            </div>
         </div>
     </div>
 </div>
@@ -155,16 +149,16 @@ if ($room_qry !== false && $room_qry->num_rows > 0)
 <script>
     $(function () {
         $('#add_history').click(function () {
-            uni_modal("Add New Record", "patients/manage_history.php?pid=<?= isset($id) ? $id : '' ?>", 'mid-large')
+            uni_modal("Add New Record", "mothers/manage_history.php?pid=<?= isset($id) ? $id : '' ?>", 'mid-large')
         })
         $('#add_admission').click(function () {
-            uni_modal("Add New Admission", "patients/manage_admission.php?pid=<?= isset($id) ? $id : '' ?>", 'mid-large')
+            uni_modal("Add New Admission", "mothers/manage_admission.php?pid=<?= isset($id) ? $id : '' ?>", 'mid-large')
         })
         $('.view_history').click(function () {
-            uni_modal("Record Details", "patients/view_history.php?id=" + $(this).attr('data-id'), 'mid-large')
+            uni_modal("Record Details", "mothers/view_history.php?id=" + $(this).attr('data-id'), 'mid-large')
         })
         $('.view_admission').click(function () {
-            uni_modal("Admission Details", "patients/view_admission.php?id=" + $(this).attr('data-id'))
+            uni_modal("Admission Details", "mothers/view_admission.php?id=" + $(this).attr('data-id'))
         })
     })
 </script>

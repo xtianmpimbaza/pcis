@@ -9,7 +9,6 @@
 <h1> Admin Panel</h1>
 <hr class="border-info">
 <div class="row">
-
     <div class="col-12 col-sm-12 col-md-6 col-lg-4">
         <div class="info-box bg-gradient-light shadow">
             <span class="info-box-icon bg-gradient-primary elevation-1"><i class="fas fa-door-open"></i></span>
@@ -61,5 +60,5 @@
 </div>
 <hr>
 <div class="w-100" style="height:50vh">
-    <img src="<?= validate_image($_settings->info('cover')) ?>" alt="System Cover Image" id="cover-img" class="img-fluid h-100 bg-gradient-dark">
+    <img src="<?= $_settings->info('cover') ?>" alt="System Cover Image" id="cover-img" class="img-fluid h-100 bg-gradient-dark">
 </div>

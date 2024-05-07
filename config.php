@@ -14,21 +14,23 @@ function redirect($url=''){
 	if(!empty($url))
 	echo '<script>location.href="'.base_url .$url.'"</script>';
 }
-function validate_image($file){
-	if(!empty($file)){
-			// exit;
-        $ex = explode('?',$file);
-        $file = $ex[0];
-        $param =  isset($ex[1]) ? '?'.$ex[1]  : '';
-		if(is_file(base_app.$file)){
-			return base_url.$file.$param;
-		}else{
-			return base_url.'dist/img/no-image-available.png';
-		}
-	}else{
-		return base_url.'dist/img/no-image-available.png';
-	}
-}
+
+//function validate_image($file){
+//	if(!empty($file)){
+//			// exit;
+//        $ex = explode('?',$file);
+//        $file = $ex[0];
+//        $param =  isset($ex[1]) ? '?'.$ex[1]  : '';
+//		if(is_file(base_url.$file)){
+//			return base_url.$file.$param;
+//		}else{
+//			return base_url.'dist/img/no-image-available.png';
+//		}
+//	}else{
+//		return base_url.'dist/img/no-image-available.png';
+//	}
+//}
+
 function isMobileDevice(){
     $aMobileUA = array(
         '/iphone/i' => 'iPhone', 

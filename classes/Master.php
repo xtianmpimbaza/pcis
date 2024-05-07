@@ -265,7 +265,7 @@ Class Master extends DBConnection
         return json_encode($resp);
     }
 
-    function save_patient()
+    function save_mother()
     {
         if (empty($_POST['id'])) {
             $prefix = "MOM" . (date('Ym'));
@@ -335,13 +335,13 @@ Class Master extends DBConnection
         return json_encode($resp);
     }
 
-    function delete_patient()
+    function delete_mother()
     {
         extract($_POST);
         $del = $this->conn->query("UPDATE `patient_list` set delete_flag = 1 where id = '{$id}'");
         if ($del) {
             $resp['status'] = 'success';
-            $this->settings->set_flashdata('success', "Patient Details has been deleted successfully.");
+            $this->settings->set_flashdata('success', "mother Details has been deleted successfully.");
 
         } else {
             $resp['status'] = 'failed';
@@ -350,7 +350,7 @@ Class Master extends DBConnection
         return json_encode($resp);
     }
 
-    function save_patient_history()
+    function save_mother_history()
     {
         extract($_POST);
         $data = "";
@@ -373,9 +373,9 @@ Class Master extends DBConnection
             $rid = !empty($id) ? $id : $this->conn->insert_id;
             $resp['status'] = 'success';
             if (empty($id))
-                $resp['msg'] = "Patient Record Details has successfully added.";
+                $resp['msg'] = "Mother Record Details has successfully added.";
             else
-                $resp['msg'] = "Patient Record Details has been updated successfully.";
+                $resp['msg'] = "Mother Record Details has been updated successfully.";
         } else {
             $resp['status'] = 'failed';
             $resp['msg'] = "An error occured.";
@@ -386,13 +386,13 @@ Class Master extends DBConnection
         return json_encode($resp);
     }
 
-    function delete_patient_history()
+    function delete_mother_history()
     {
         extract($_POST);
         $del = $this->conn->query("DELETE FROM `patient_history` where id = '{$id}'");
         if ($del) {
             $resp['status'] = 'success';
-            $this->settings->set_flashdata('success', "Patient Record Details has been deleted successfully.");
+            $this->settings->set_flashdata('success', "Mother Record Details has been deleted successfully.");
 
         } else {
             $resp['status'] = 'failed';
@@ -401,7 +401,7 @@ Class Master extends DBConnection
         return json_encode($resp);
     }
 
-    function save_patient_admission()
+    function save_mother_admission()
     {
         if (empty($_POST['date_discharged'])) {
             $_POST['date_discharged'] = NULL;
@@ -430,9 +430,9 @@ Class Master extends DBConnection
             $rid = !empty($id) ? $id : $this->conn->insert_id;
             $resp['status'] = 'success';
             if (empty($id))
-                $resp['msg'] = "Patient Admission Record has successfully added.";
+                $resp['msg'] = "Mother Admission Record has successfully added.";
             else
-                $resp['msg'] = "Patient Admission Record has been updated successfully.";
+                $resp['msg'] = "Mother Admission Record has been updated successfully.";
         } else {
             $resp['status'] = 'failed';
             $resp['msg'] = "An error occured.";
@@ -466,9 +466,9 @@ Class Master extends DBConnection
             $rid = !empty($id) ? $id : $this->conn->insert_id;
             $resp['status'] = 'success';
             if (empty($id))
-                $resp['msg'] = "Patient Admission Record has successfully added.";
+                $resp['msg'] = "Mother Admission Record has successfully added.";
             else
-                $resp['msg'] = "Patient Admission Record has been updated successfully.";
+                $resp['msg'] = "Mother Admission Record has been updated successfully.";
         } else {
             $resp['status'] = 'failed';
             $resp['msg'] = "An error occured.";
@@ -479,13 +479,13 @@ Class Master extends DBConnection
         return json_encode($resp);
     }
 
-    function delete_patient_admission()
+    function delete_mother_admission()
     {
         extract($_POST);
         $del = $this->conn->query("DELETE FROM `admission_history` where id = '{$id}'");
         if ($del) {
             $resp['status'] = 'success';
-            $this->settings->set_flashdata('success', "Patient Admission Record has been deleted successfully.");
+            $this->settings->set_flashdata('success', "Mother Admission Record has been deleted successfully.");
 
         } else {
             $resp['status'] = 'failed';
@@ -496,8 +496,11 @@ Class Master extends DBConnection
 }
 
 $Master = new Master();
+
 $action = !isset($_GET['f']) ? 'none' : strtolower($_GET['f']);
+
 $sysset = new SystemSettings();
+
 switch ($action) {
     case 'save_room_type':
         echo $Master->save_room_type();
@@ -526,26 +529,26 @@ switch ($action) {
     case 'delete_reminder':
         echo $Master->delete_reminder();
         break;
-    case 'save_patient':
-        echo $Master->save_patient();
+    case 'save_mother':
+        echo $Master->save_mother();
         break;
-    case 'delete_patient':
-        echo $Master->delete_patient();
+    case 'delete_mother':
+        echo $Master->delete_mother();
         break;
-    case 'save_patient_history':
-        echo $Master->save_patient_history();
+    case 'save_mother_history':
+        echo $Master->save_mother_history();
         break;
-    case 'delete_patient_history':
-        echo $Master->delete_patient_history();
+    case 'delete_mother_history':
+        echo $Master->delete_mother_history();
         break;
-    case 'save_patient_admission':
-        echo $Master->save_patient_admission();
+    case 'save_mother_admission':
+        echo $Master->save_mother_admission();
         break;
     case 'save_reminders':
         echo $Master->save_reminder();
         break;
-    case 'delete_patient_admission':
-        echo $Master->delete_patient_admission();
+    case 'delete_mother_admission':
+        echo $Master->delete_mother_admission();
         break;
     default:
         // echo $sysset->index();

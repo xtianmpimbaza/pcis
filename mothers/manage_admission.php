@@ -74,6 +74,7 @@ if (isset($_GET['id'])) {
                 dropdownParent: $('#uni_modal')
             })
         })
+
         $('#uni_modal #patient-history-form').submit(function (e) {
             e.preventDefault();
             console.log('Lesee: ')
@@ -84,7 +85,7 @@ if (isset($_GET['id'])) {
             el.hide()
             start_loader();
             $.ajax({
-                url: _base_url_ + "classes/Master.php?f=save_patient_admission",
+                url: _base_url_ + "classes/Master.php?f=save_mother_admission",
                 data: new FormData($(this)[0]),
                 cache: false,
                 contentType: false,

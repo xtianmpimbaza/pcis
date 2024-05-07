@@ -28,8 +28,8 @@
                     ?>
                     <tr>
                         <td class="text-center"><?php echo $i++; ?></td>
-                        <td><?php echo ucwords($row['email']) ?></td>
-                        <td><?php echo ucwords($row['message']) ?></td>
+                        <td><?php echo $row['email'] ?></td>
+                        <td><?php echo $row['message'] ?></td>
                         <td class=""><?php echo $row['due_date'] ?></td>
                         <td class=""><?php echo date("Y-m-d H:i",strtotime($row['created_at'])) ?></td>
                         <td align="center">
@@ -38,8 +38,6 @@
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item view_data" href="javascript:void(0)" data-id ="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View User</a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
                             </div>
                         </td>

@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
     }
 </style>
 <div class="container-fluid">
-    <form action="" id="patient-history-form">
+    <form action="" id="mother-history-form">
         <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
         <input type="hidden" name="patient_id" value="<?php echo isset($_GET['pid']) ? $_GET['pid'] : '' ?>">
 
@@ -59,7 +59,7 @@ if(isset($_GET['id'])){
 
         <div class="row">
             <div class="form-group container text-right">
-                <input required type="submit" name="submit" id="submit" class="btn btn-primary" value="Save" required>
+                <input required type="submit" name="submit" id="submit" class="btn btn-primary" value="Save">
                 <button type="button" class="btn btn-secondary btn-flat" data-dismiss="modal">Cancel</button>
             </div>
         </div>
@@ -70,6 +70,7 @@ if(isset($_GET['id'])){
 
 <script>
     $(function(){
+
         $('#uni_modal').on('shown.bs.modal',function(){
             console.log('test')
             $(".select2").select2({
@@ -78,16 +79,19 @@ if(isset($_GET['id'])){
                 dropdownParent:$('#uni_modal')
             })
         })
-        $('#uni_modal #patient-history-form').submit(function(e){
+
+        $('#uni_modal #mother-history-form').submit(function(e){
             e.preventDefault();
             var _this = $(this)
             $('.pop-msg').remove()
+
             var el = $('<div>')
                 el.addClass("pop-msg alert")
                 el.hide()
             start_loader();
+
             $.ajax({
-                url:_base_url_+"classes/Master.php?f=save_patient_history",
+                url:_base_url_+"classes/Master.php?f=save_mother_history",
 				data: new FormData($(this)[0]),
                 cache: false,
                 contentType: false,
