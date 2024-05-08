@@ -1,15 +1,18 @@
 <?php
-if(!class_exists('DBConnection')){
-	require_once('../config.php');
-	require_once('DBConnection.php');
-}
-class SystemSettings extends DBConnection{
-	public function __construct(){
-		parent::__construct();
-	}
-	function check_connection(){
-		return($this->conn);
-	}
+//if(!class_exists('DBConnection')){
+//	require_once('config.php');
+//	require_once('DBConnection.php');
+//}
+
+//class SystemSettings{
+//	public function __construct(){
+//		parent::__construct();
+//	}
+
+//	function check_connection(){
+//		return($this->conn);
+//	}
+
 	function load_system_info(){
 		// if(!isset($_SESSION['system_info'])){
 			$sql = "SELECT * FROM system_info";
@@ -19,6 +22,7 @@ class SystemSettings extends DBConnection{
 				}
 		// }
 	}
+
 	function update_system_info(){
 		$sql = "SELECT * FROM system_info";
 		$qry = $this->conn->query($sql);
@@ -28,6 +32,7 @@ class SystemSettings extends DBConnection{
 			}
 		return true;
 	}
+
 	function update_settings_info(){
 		$data = "";
 		foreach ($_POST as $key => $value) {
@@ -127,11 +132,13 @@ class SystemSettings extends DBConnection{
 			return true;
 		}
 	}
+
 	function set_userdata($field='',$value=''){
 		if(!empty($field) && !empty($value)){
 			$_SESSION['userdata'][$field]= $value;
 		}
 	}
+
 	function userdata($field = ''){
 		if(!empty($field)){
 			if(isset($_SESSION['userdata'][$field]))
@@ -142,12 +149,14 @@ class SystemSettings extends DBConnection{
 			return false;
 		}
 	}
+
 	function set_flashdata($flash='',$value=''){
 		if(!empty($flash) && !empty($value)){
 			$_SESSION['flashdata'][$flash]= $value;
 		return true;
 		}
 	}
+
 	function chk_flashdata($flash = ''){
 		if(isset($_SESSION['flashdata'][$flash])){
 			return true;
@@ -155,6 +164,7 @@ class SystemSettings extends DBConnection{
 			return false;
 		}
 	}
+
 	function flashdata($flash = ''){
 		if(!empty($flash)){
 			$_tmp = $_SESSION['flashdata'][$flash];
@@ -183,19 +193,22 @@ class SystemSettings extends DBConnection{
 			return false;
 		}
 	}
+
 	function set_info($field='',$value=''){
 		if(!empty($field) && !empty($value)){
 			$_SESSION['system_info'][$field] = $value;
 		}
 	}
-}
-$_settings = new SystemSettings();
-$_settings->load_system_info();
+//}
+//$_settings = new SystemSettings();
+//$_settings->load_system_info();
+
 $action = !isset($_GET['f']) ? 'none' : strtolower($_GET['f']);
-$sysset = new SystemSettings();
+//$sysset = new SystemSettings();
+
 switch ($action) {
 	case 'update_settings':
-		echo $sysset->update_settings_info();
+		echo update_settings_info();
 		break;
 	default:
 		// echo $sysset->index();

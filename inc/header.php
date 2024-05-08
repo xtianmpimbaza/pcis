@@ -10,8 +10,8 @@ require_once('sess_auth.php');
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $_settings->info('title') != false ? $_settings->info('title') . ' | ' : '' ?><?php echo $_settings->info('name') ?></title>
-    <link rel="icon" href="<?php echo $_settings->info('logo') ?>"/>
+    <title>PCIS</title>
+    <link rel="icon" href="<?php echo info('logo') ?>"/>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url ?>plugins/fontawesome-free/css/all.min.css">

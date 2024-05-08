@@ -60,5 +60,5 @@
 </div>
 <hr>
 <div class="w-100" style="height:50vh">
-    <img src="<?= $_settings->info('cover') ?>" alt="System Cover Image" id="cover-img" class="img-fluid h-100 bg-gradient-dark">
+    <img src="<?= info('cover') ?>" alt="System Cover Image" id="cover-img" class="img-fluid h-100 bg-gradient-dark">
 </div>

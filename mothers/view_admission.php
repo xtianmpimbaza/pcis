@@ -35,16 +35,16 @@ if(isset($_GET['id'])){
 <script>
     $(function(){
         $('#uni_modal #delete_admission').click(function(){
-            _conf("Are you sure to delete this patient admission record history?",'delete_admission',['<?= isset($id) ? $id : '' ?>'])
+            _conf("Are you sure to delete this mother admission record history?",'delete_admission',['<?= isset($id) ? $id : '' ?>'])
         })
         $('#edit_admission').click(function(){
-            uni_modal("Edit Record Details","patients/manage_admission.php?pid=<?= isset($patient_id) ? $patient_id : '' ?>&id=<?= isset($id) ? $id : '' ?>",'mid-large')
+            uni_modal("Edit Record Details","mothers/manage_admission.php?pid=<?= isset($patient_id) ? $patient_id : '' ?>&id=<?= isset($id) ? $id : '' ?>",'mid-large')
         })
     })
     function delete_admission($id){
 		start_loader();
 		$.ajax({
-			url:_base_url_+"classes/Master.php?f=delete_patient_admission",
+			url:_base_url_+"classes/Master.php?f=delete_mother_admission",
 			method:"POST",
 			data:{id: $id},
 			dataType:"json",

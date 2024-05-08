@@ -3,10 +3,10 @@
 <div class="main-sidebar sidebar-dark-red elevation-4 sidebar-no-expand bg-dark-red">
     <!-- Brand Logo -->
     <a href="<?php echo base_url ?>admin" class="brand-link bg-transparent text-sm border-info shadow-sm bg-red">
-        <img src="<?php echo $_settings->info('logo') ?>" alt="Store Logo"
+        <img src="<?php echo info('logo') ?>" alt="Store Logo"
              class="brand-image img-circle elevation-3 bg-black"
              style="width: 1.8rem;height: 1.8rem;max-height: unset;object-fit:scale-down;object-position:center center">
-        <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
+        <span class="brand-text font-weight-light"><?php echo info('short_name') ?></span>
     </a>
     <!-- Sidebar -->
     <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-transition os-host-scrollbar-horizontal-hidden">
@@ -27,7 +27,7 @@
                         <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-compact nav-flat nav-child-indent nav-collapse-hide-child"
                             data-widget="treeview" role="menu" data-accordion="false">
                             <li class="nav-item dropdown">
-                                <a href="./" class="nav-link nav-home">
+                                <a href="<?php echo base_url ?>?page=home" class="nav-link nav-home">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
                                         Dashboard
@@ -50,7 +50,7 @@
                                     </p>
                                 </a>
                             </li>
-                            <?php if ($_settings->userdata('type') == 1): ?>
+                            <?php if (userdata('type') == 1): ?>
                                 <li class="nav-item dropdown">
                                     <a href="<?php echo base_url ?>?page=room_types" class="nav-link nav-room_types">
                                         <i class="nav-icon fas fa-th-list"></i>

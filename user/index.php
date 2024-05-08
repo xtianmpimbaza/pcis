@@ -1,13 +1,13 @@
 <?php
-$user = $conn->query("SELECT * FROM users where id ='" . $_settings->userdata('id') . "'");
+$user = $conn->query("SELECT * FROM users where id ='" . userdata('id') . "'");
 foreach ($user->fetch_array() as $k => $v) {
     $meta[$k] = $v;
 }
 ?>
 
-<?php if ($_settings->chk_flashdata('success')): ?>
+<?php if (chk_flashdata('success')): ?>
     <script>
-        alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
+        alert_toast("<?php echo flashdata('success') ?>", 'success')
     </script>
 <?php endif; ?>
 
@@ -16,7 +16,7 @@ foreach ($user->fetch_array() as $k => $v) {
         <div class="container-fluid">
             <div id="msg"></div>
             <form action="" id="manage-user">
-                <input type="hidden" name="id" value="<?php echo $_settings->userdata('id') ?>">
+                <input type="hidden" name="id" value="<?php echo userdata('id') ?>">
                 <div class="form-group">
                     <label for="name">First Name</label>
                     <input type="text" name="firstname" id="firstname" class="form-control"

@@ -35,7 +35,6 @@ $(document).ready(function () {
             data: $(this).serialize(),
             error: err => {
                 console.log(err)
-
             },
             success: function (resp) {
                 if (resp) {
@@ -108,11 +107,12 @@ $(document).ready(function () {
 
             },
             success: function (resp) {
+                console.log(resp)
                 if (resp) {
                     resp = JSON.parse(resp)
                     if (resp.status === 'success') {
                         location.replace(_base_url_ + 'student');
-                    } else if (resp.status == 'incorrect') {
+                    } else if (resp.status === 'incorrect') {
                         var _frm = $('#slogin-frm')
                         var _msg = "<div class='alert alert-danger text-white err_msg'><i class='fa fa-exclamation-triangle'></i> Incorrect username or password</div>"
                         _frm.prepend(_msg)

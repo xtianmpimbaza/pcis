@@ -19,7 +19,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="<?php echo base_url ?>" class="nav-link"><b><?php echo (!isMobileDevice()) ? $_settings->info('name'):$_settings->info('short_name'); ?></b></a>
+            <a href="<?php echo base_url ?>" class="nav-link"><b><?php echo info('name'); ?></b></a>
           </li>
         </ul>
         <!-- Right navbar links -->
@@ -28,8 +28,8 @@
           <li class="nav-item">
             <div class="btn-group nav-link">
                   <button type="button" class="btn btn-rounded badge badge-light dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                    <span><img src="<?php echo $_settings->userdata('avatar') ?>" class="img-circle elevation-2 user-img" alt="User Image"></span>
-                    <span class="ml-3"><?php echo ucwords($_settings->userdata('firstname').' '.$_settings->userdata('lastname')) ?></span>
+                    <span><img src="<?php echo userdata('avatar') ?>" class="img-circle elevation-2 user-img" alt="User Image"></span>
+                    <span class="ml-3"><?php echo ucwords(userdata('firstname').' '.userdata('lastname')) ?></span>
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu" role="menu">

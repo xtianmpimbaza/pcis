@@ -50,6 +50,7 @@ require_once('../config.php');
 </div>
 <script>
     $(function () {
+
         $('#uni_modal').on('shown.bs.modal', function () {
             console.log('test')
             $(".select2").select2({
@@ -58,6 +59,7 @@ require_once('../config.php');
                 dropdownParent: $('#uni_modal')
             })
         })
+
         $('#uni_modal #reminders-form').submit(function (e) {
             e.preventDefault();
 

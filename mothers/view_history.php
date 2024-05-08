@@ -18,8 +18,6 @@ if(isset($_GET['id'])){
 </style>
 <div class="container-fluid">
     <dl>
-<!--        <dt class="text-primary"><b>Illness</b></dt>-->
-<!--        <dd class="pl-4">--><?//= isset($illness) && !empty($illness) ? $illness : 'N/A' ?><!--</dd>-->
         <dt class="text-primary"><b>Diagnosis</b></dt>
         <dd class="pl-4"><?= isset($diagnosis) && !empty($diagnosis) ? $diagnosis : 'N/A' ?></dd>
         <dt class="text-primary"><b>Treatment</b></dt>
@@ -39,16 +37,16 @@ if(isset($_GET['id'])){
 <script>
     $(function(){
         $('#uni_modal #delete_history').click(function(){
-            _conf("Are you sure to delete this patient record history?",'delete_history',['<?= isset($id) ? $id : '' ?>'])
+            _conf("Are you sure to delete this mother record history?",'delete_history',['<?= isset($id) ? $id : '' ?>'])
         })
         $('#edit_history').click(function(){
-            uni_modal("Edit Record Details","patients/manage_history.php?pid=<?= isset($patient_id) ? $patient_id : '' ?>&id=<?= isset($id) ? $id : '' ?>",'mid-large')
+            uni_modal("Edit Record Details","mothers/manage_history.php?pid=<?= isset($patient_id) ? $patient_id : '' ?>&id=<?= isset($id) ? $id : '' ?>",'mid-large')
         })
     })
     function delete_history($id){
 		start_loader();
 		$.ajax({
-			url:_base_url_+"classes/Master.php?f=delete_patient_history",
+			url:_base_url_+"classes/Master.php?f=delete_mother_history",
 			method:"POST",
 			data:{id: $id},
 			dataType:"json",

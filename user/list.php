@@ -1,6 +1,6 @@
-<?php if($_settings->chk_flashdata('success')): ?>
+<?php if(chk_flashdata('success')): ?>
 <script>
-	alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
+	alert_toast("<?php echo flashdata('success') ?>",'success')
 </script>
 <?php endif;?>
 
@@ -115,7 +115,7 @@
 				end_loader();
 			},
 			success:function(resp){
-				if(typeof resp== 'object' && resp.status == 'success'){
+				if(typeof resp== 'object' && resp.status === 'success'){
 					location.reload();
 				}else{
 					alert_toast("An error occured.",'error');

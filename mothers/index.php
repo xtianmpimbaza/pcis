@@ -1,6 +1,6 @@
-<?php if ($_settings->chk_flashdata('success')): ?>
+<?php if (chk_flashdata('success')): ?>
     <script>
-        alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
+        alert_toast("<?php echo flashdata('success') ?>", 'success')
     </script>
 <?php endif; ?>
 
@@ -118,7 +118,7 @@
             data: {id: $id},
             dataType: "json",
             error: err => {
-                console.log(err)
+                console.log(err);
                 alert_toast("An error occured.", 'error');
                 end_loader();
             },

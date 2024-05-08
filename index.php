@@ -7,9 +7,9 @@
 <div class="wrapper">
     <?php require_once('inc/topBarNav.php') ?>
     <?php require_once('inc/navigation.php') ?>
-    <?php if ($_settings->chk_flashdata('success')): ?>
+    <?php if (chk_flashdata('success')): ?>
         <script>
-            alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
+            alert_toast("<?php echo flashdata('success') ?>", 'success')
         </script>
     <?php endif; ?>
 
